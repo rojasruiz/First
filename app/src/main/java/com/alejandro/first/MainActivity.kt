@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 /**
- * "author Alejandro Rojas Ruiz
+ * @author Alejandro Rojas Ruiz
  */
 
 class MainActivity : AppCompatActivity() {
