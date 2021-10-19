@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_username"
@@ -22,7 +23,8 @@
             android:layout_height="wrap_content"
             android:autofillHints="username"
             android:inputType="text"
-            tools:ignore="SpeakableTextPresentCheck">
+            tools:ignore="SpeakableTextPresentCheck"
+            android:alpha="0.8">
 
 
         </EditText>
@@ -37,7 +39,8 @@
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintTop_toBottomOf="@id/til_username"
         app:passwordToggleEnabled="true"
-        app:startIconDrawable="@drawable/passwd_icon_foreground">
+        app:startIconDrawable="@drawable/passwd_icon_foreground"
+        >
 
         <EditText
             android:layout_width="match_parent"
@@ -45,7 +48,8 @@
             android:autofillHints="password"
             android:hint="@string/password"
             android:inputType="textPassword"
-            tools:ignore="SpeakableTextPresentCheck">
+            tools:ignore="SpeakableTextPresentCheck"
+            android:alpha="0.8">
 
 
         </EditText>
@@ -86,7 +90,8 @@
         android:text="@string/not_registered_yet_create_account"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        android:textColor="@color/white"></TextView>
 
     <ImageView
         android:id="@+id/imageView"
