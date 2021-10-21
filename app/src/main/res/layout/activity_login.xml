@@ -4,8 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/gradient">
+    android:background="@drawable/gradient"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitStart"
+        android:src="@drawable/girl"
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_username"
@@ -21,10 +29,10 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
             android:autofillHints="username"
             android:inputType="text"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:alpha="0.8">
+            tools:ignore="SpeakableTextPresentCheck">
 
 
         </EditText>
@@ -39,17 +47,16 @@
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintTop_toBottomOf="@id/til_username"
         app:passwordToggleEnabled="true"
-        app:startIconDrawable="@drawable/passwd_icon_foreground"
-        >
+        app:startIconDrawable="@drawable/passwd_icon_foreground">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
             android:autofillHints="password"
             android:hint="@string/password"
             android:inputType="textPassword"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:alpha="0.8">
+            tools:ignore="SpeakableTextPresentCheck">
 
 
         </EditText>
@@ -67,7 +74,9 @@
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_custom"
         android:text="@string/login"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintHorizontal_bias="0.0"
@@ -82,25 +91,28 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.8004866" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/not_registered_yet_create_account"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        android:textColor="@color/white"></TextView>
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="147dp"
         android:layout_height="151dp"
         app:layout_constraintBottom_toTopOf="@+id/til_username"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571"
         app:srcCompat="@mipmap/home_icon" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/buttonInverse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/register"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
