@@ -1,9 +1,11 @@
 package com.alejandro.first;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,8 +17,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         // casting a la vista a la que aplicamos un menu contextual
         // y la registramos
 
-        TextView mycontext = (TextView) findViewById(R.id.textTap);
+        WebView mycontext = (WebView) findViewById(R.id.vistaweb);
         registerForContextMenu(mycontext);
 
         swipeLayout = (SwipeRefreshLayout) findViewById(R.id.myswipe);
@@ -70,19 +75,20 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mi_menu, menu);
     }
+
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)
                 item.getMenuInfo();
         switch (item.getItemId()) {
             case R.id.item:
-                Toast toast = Toast.makeText(this,"going CONTEXT ITEM",
-                        Toast.LENGTH_LONG );
+                Toast toast = Toast.makeText(this, "going CONTEXT ITEM",
+                        Toast.LENGTH_LONG);
                 toast.show();
                 return true;
             case R.id.action_settings:
-                Toast toast2 = Toast.makeText(this,"going CONTEXT SETTINGS",
-                        Toast.LENGTH_LONG );
+                Toast toast2 = Toast.makeText(this, "going CONTEXT SETTINGS",
+                        Toast.LENGTH_LONG);
                 toast2.show();
                 return true;
             default:
@@ -96,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_appbar, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -107,25 +114,67 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         if (id == R.id.camera) {
-            dispatchTakePictureIntent();
+            showAlertDialogButtonClicked(this);
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void dispatchTakePictureIntent() {
-        Toast toast = Toast.makeText(this,"going APPBAR CAMERA 1",Toast.LENGTH_LONG );
-        toast.show();
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+    // DIALOGO MODAL
+
+    public void showAlertDialogButtonClicked(MainActivity mainActivity) {
+
+        // setup the alert builder
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+
+//        //el dialogo estandar tiene título/icono pero podemos sustituirlo por un XML a medida
+        builder.setTitle("Register");
+        builder.setMessage("Do you want to sign up?");
+        builder.setIcon(R.drawable.user_icon_foreground);
+        builder.setCancelable(false);
+
+
+//        // un XML a medida para el diálogo
+//        builder.setView(getLayoutInflater().inflate(R.layout.alertdialog_view, null));
+
+        // add the buttons
+        builder.setPositiveButton("Signup", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // do something like...
+                Intent intent = new Intent(MainActivity.this, SignUp.class);
+                startActivity(intent);
+                dialog.dismiss();
+
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                // do something like...
+
+                dialog.dismiss();
+            }
+        });
+
+        builder.setNeutralButton("Login", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+                dialog.dismiss();
+            }
+        });
+
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            fotoRes.setImageBitmap(imageBitmap);
-        }
-    }
+
 }

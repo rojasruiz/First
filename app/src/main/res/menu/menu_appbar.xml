@@ -6,7 +6,7 @@
     tools:context="com.rcl.appuem.MainActivity">
     <item
         android:id="@+id/camera"
-        android:icon="@drawable/ic_fav"
+        android:icon="@drawable/passwd_icon_foreground"
         android:title="Item"
         app:showAsAction="always" />
     <item
