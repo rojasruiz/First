@@ -16,7 +16,7 @@ This first creen is thought as a welcoming screen for the user, showing the appl
 
 ## Login Screen 
 
-![Login Screen](./img/login_screen.png)
+![Login Screen](./img/Login_screen.png)
 
 In thiss creen we are going to let the user login into our application or register in it. For that we have two fields in witch the user can introduce his username, and his pasword in order to login.
 
@@ -26,13 +26,13 @@ This screen also shows the application logo in the front
 
 ## Register Screen 
 
-![Register Screen](./img/register1.png) ![Register Screen 2](./img/register2.png)
+![Register Screen](./img/Register1.png) ![Register Screen 2](./img/Register2.png)
 
 In this screen we have an scroll layout to contain all the fields necesary to the user to register. The user will have to complete all the fields and finally click the button register to perform the register.
 
 The birth date field has a calendar incorporated as you click it in order to select your own birthdate to register
 
-![Register calendar](./img/register_calendar.png)
+![Register calendar](./img/Register_calendar.png)
 
 Also in order to register, the user will have to upload his/her user avatar, in order to facillitate that we have the options to click the camera buton, which will open the camera of the device and the user would take a photo of himself and choose it as his/her user avatar
 
@@ -42,12 +42,12 @@ Also in order to register, the user will have to upload his/her user avatar, in 
 
 As the user finally loged in, he/she will have access to the main screen of the application, which consist in a swipe layout to refresh the photo in the background, which will change into another photo of a person that doesn't exist.
 
-![Main gif](./img/main.gif)
+![Main gif](./img/Main.gif)
 
 If we long press the image a contextual menu will appear
 
-![Main contextual](./img/main_menu1.png)
+![Main contextual](./img/Main_menu1.png)
 
 If we click the key button another menu will appear in orther to let the user log out, or go to the register screen to crate a new account
 
-![Main key](./img/main_menu_register.png)
+![Main key](./img/Main_menu_register.png)
