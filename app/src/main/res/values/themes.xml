@@ -36,4 +36,18 @@
         <item name="cornerRadius">4dp</item>
         <item name="strokeColor">@android:color/white</item>
     </style>
+
+    <style name="Theme.First.ActionBar.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.First.ActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.First.ActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.First.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.First.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

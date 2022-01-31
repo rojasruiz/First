@@ -116,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.camera) {
             showAlertDialogButtonClicked(this);
         }
+        if (id == R.id.bottom_navigation) {
+            Intent i = new Intent(this, MainBn.class);
+            startActivity(i);
+        }
         return super.onOptionsItemSelected(item);
     }
 

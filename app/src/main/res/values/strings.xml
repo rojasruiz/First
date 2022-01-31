@@ -11,4 +11,7 @@
     <string name="birth_date">Birth Date</string>
     <string name="full_name">Full name</string>
     <string name="settings">Settings</string>
+    <string name="title_activity_main_bn">MainBn</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>
